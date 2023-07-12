@@ -1,58 +1,32 @@
 
 /* App.css */
 
-
-header {
-  background-color: #F86F03;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999; /* Ensure the header is on top of other elements */
+#banner {
+  position: relative;
 }
 
-.brand {
-  font-size: 24px;
-  color: #fff;
-  margin-left: 100px;
-  font-weight: bold;
+.catchphrase {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
 
+.catchphrase-text {
+  font-size: 36px;
+  color: #f4f4f4;
+  text-transform: uppercase;
   
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.nav {
-  color: #fff;
-  text-decoration: none;
-}
-
-nav ul {
-  list-style-type: none;
-  display: flex;
-}
-
-nav ul li {
-  margin-left: 80px;
-  color: #fff;
-}
-
-nav ul li:first-child {
-  margin-left: 0;
-}
-
-nav ul li:last-child {
-  margin-right: 100px;
-}
-
-  
   .banner-image {
-  width: 100%; /* Set the width to 100% to span the full width /
-  height: auto;
-  object-fit: cover;
-  overflow: hidden; / Cut the image shorter */
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
   }
   
   .articles {
@@ -60,19 +34,23 @@ nav ul li:last-child {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
     border-radius: 8px;
     padding: 20px;
-    background-color: #FFFFFF;
+
+    flex-wrap: wrap;
   }
   
   .articles-title {
     display: flex;
     justify-content: center;
-    color: #F86F03;
-    font-size: 24px;
+    color:#434343;
+    font-size: 28px;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+
+
   }
   
   .articles article {
@@ -81,7 +59,7 @@ nav ul li:last-child {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 10px;
-    background-color: #F8F8F8;
+    background-color: #eeeeee;
   }
   
   .articles img {
@@ -109,6 +87,7 @@ nav ul li:last-child {
   width: 200px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #f4f4f4;
   }
   
   .search-tool select {
@@ -116,6 +95,7 @@ nav ul li:last-child {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #f4f4f4;
   }
   
   .muscle-groups {
@@ -123,15 +103,20 @@ nav ul li:last-child {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
   }
+
+ 
 
   .muscle-group-title{
     text-align: center;
-    color: #F86F03;
-    font-size: 32px;
+    color: #434343;
+    font-size: 28px;
     margin-top: 40px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
   
   .card {
@@ -139,10 +124,19 @@ nav ul li:last-child {
     flex-direction: column;
     align-items: center;
     margin: 10px;
+    background-color: #eeeeee;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: transform 0.3s ease;
     cursor: pointer;
+    flex: 0 1 calc(30px); /* Adjust the width of the card as needed */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card {
+      flex-basis: 100%;
+      margin: 10px 0;
+    }
   }
   
   .card:hover {
@@ -150,19 +144,22 @@ nav ul li:last-child {
   }
   
   .card img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
   }
   
   .workout-builder-title {
     text-align: center;
-    color: #F86F03;
-    font-size: 32px;
+  
+    font-size: 28px;
     margin-top: 40px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #434343;;
+
   }
   
   .workout-builder {
@@ -194,6 +191,7 @@ nav ul li:last-child {
     border-radius: 10px;
     padding: 8px;
     font-size: 14px;
+    background-color: #f8f8f8;
   }
 
   .generate-button {
@@ -204,7 +202,7 @@ nav ul li:last-child {
   
   button {
     padding: 12px 24px;
-    background-color: #FD7F20;
+    background-color: #434343;
     color: #fff;
     border: none;
     border-radius: 30px;
@@ -216,7 +214,7 @@ nav ul li:last-child {
   }
   
   button:hover {
-    background-color: #E55E00;
+    background-color: #696969;
   }
   
   .routine-table {
@@ -246,8 +244,10 @@ nav ul li:last-child {
     margin-top: 60px;
     margin-bottom: 20px;
     text-align: center;
-    color: #F86F03;
+    color: #434343;;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
   }
 
   .contact-section {
@@ -265,7 +265,7 @@ nav ul li:last-child {
     max-width: 300px; /* Set a maximum width for the form */
 
     margin-right: 200px; /* Add margin for spacing */
-    margin-left: 200px;
+    margin-left: 300px;
   }
   
   .contact-form input,
@@ -275,6 +275,7 @@ nav ul li:last-child {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+
   }
   
   .contact-form textarea {
@@ -283,7 +284,7 @@ nav ul li:last-child {
   
   .contact-form button {
     padding: 10px 20px;
-    background-color: #fd7f20;
+    background-color: #434343;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -293,7 +294,10 @@ nav ul li:last-child {
   
   .contact-title {
     text-align: center;
-    color: orange;
+
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #434343;
   }
 
   .map-container {
@@ -303,10 +307,32 @@ nav ul li:last-child {
   }
   
   .map-container iframe {
-    width: 100%;
+    width: 70%;
     height: 100%;
     border: none;
     border-radius: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 180px;
   }
   
+
+  .scroll-up-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #434343;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .scroll-up-button:hover {
+    background-color: #363636;
+  }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import bannerImage from './images/crossfit.jpg';
 import fullbody from './images/full_body.jpg';
 import strength from './images/strenght.jpg';
@@ -10,13 +10,34 @@ import backworkouts from './images/backworkouts.jpg';
 import gluteworkouts from './images/gluteworkouts.jpg';
 import legworkouts from './images/legworkouts.jpg';
 import shoulderworkouts from './images/shoulderworkout.jpg';
+import './header.css'; // Import the CSS file for the header
 import './App.css';
+import Header from './Header';
+import { FaArrowUp } from 'react-icons/fa';
+
 
 
 
 function App() {
   
+  const [showButton, setShowButton] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setShowButton(scrollTop > 200); // Display the button when scrolled down 200 pixels
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   
   const [showTable, setShowTable] = useState(false);
   
@@ -150,24 +171,29 @@ function App() {
     }
   });
 
-  return (
-    <div className="App">
-      <header>
-        <section id='home'>
-        <div className="brand">GYMBRO</div>
-        </section>
-        <nav>
-          <ul>
-          <li><a href="#home" class="nav">HOME</a></li>
-          <li><a href="#articles" class="nav">ARTICLES</a></li>
-          <li><a href="#exercices" class="nav">EXERCICES</a></li>
-          <li><a href="#build-workout" class="nav">BUILD WORKOUT</a></li>
-          <li><a href="#contact-us" class="nav">CONTACT US</a></li>
-          </ul>
-        </nav>
-      </header>
 
-      <img className="banner-image" src={bannerImage} alt="Banner" />
+
+  return (
+    <div className="App" style={{ backgroundColor: "#f4f4f4" }}>
+      <div>
+      <Header />
+      </div>
+
+      {showButton && (
+        <div className="scroll-up-button" onClick={scrollToTop}>
+          <FaArrowUp />
+        </div>
+      )}
+
+
+      <section id="banner">
+        <div className="catchphrase">
+          <h1 className="catchphrase-text">
+            Unleash Your Inner Strength
+          </h1>
+        </div>
+        <img className="banner-image" src={bannerImage} alt="Banner" />
+      </section>
 
       <section id="articles">
       <h2 className="articles-title">Articles to Unlock Your Potential</h2>
@@ -288,10 +314,9 @@ function App() {
             onChange={handleWorkoutTimeChange}
           >
             <option value="">Select Workout Time</option>
-            <option value="15">15 minutes</option>
             <option value="30">30 minutes</option>
-            <option value="45">45 minutes</option>
-            <option value="60">60 minutes</option>
+            <option value="45">60 minutes</option>
+            <option value="60">90 minutes</option>
           </select>
         </div>
 
@@ -303,13 +328,13 @@ function App() {
             value={trainingDays}
             onChange={handleTrainingDaysChange}
           >
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-            <option value="thursday">Thursday</option>
-            <option value="friday">Friday</option>
-            <option value="saturday">Saturday</option>
-            <option value="sunday">Sunday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
           </select>
         </div>
 
@@ -382,8 +407,8 @@ function App() {
     ></iframe>
   </div>
 
-</section>
-    </div>
+        </section>
+      </div>
 
     
   );
