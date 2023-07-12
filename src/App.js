@@ -159,7 +159,7 @@ function App() {
         <nav>
           <ul>
           <li><a href="#home" class="nav">HOME</a></li>
-          <li><a href="#articles" class="nav">Articles</a></li>
+          <li><a href="#articles" class="nav">ARTICLES</a></li>
           <li><a href="#exercices" class="nav">EXERCICES</a></li>
           <li><a href="#build-workout" class="nav">BUILD WORKOUT</a></li>
           <li><a href="#contact-us" class="nav">CONTACT US</a></li>
@@ -232,6 +232,7 @@ function App() {
       <section id='build-workout'>
       <h2 className="workout-builder-title">Workout Builder</h2>
       </section>
+      
       <div className="workout-builder">
         <div className="form-group">
           <label htmlFor="gender">Gender:</label>
@@ -280,6 +281,21 @@ function App() {
         </div>
 
         <div className="form-group">
+          <label htmlFor="workoutTime">Workout Time:</label>
+          <select
+            id="workoutTime"
+            value={workoutTime}
+            onChange={handleWorkoutTimeChange}
+          >
+            <option value="">Select Workout Time</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">60 minutes</option>
+          </select>
+        </div>
+
+        <div className="form-group">
           <label htmlFor="trainingDays">Training Days:</label>
           <select
             id="trainingDays"
@@ -297,25 +313,14 @@ function App() {
           </select>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="workoutTime">Workout Time:</label>
-          <select
-            id="workoutTime"
-            value={workoutTime}
-            onChange={handleWorkoutTimeChange}
-          >
-            <option value="">Select Workout Time</option>
-            <option value="15">15 minutes</option>
-            <option value="30">30 minutes</option>
-            <option value="45">45 minutes</option>
-            <option value="60">60 minutes</option>
-          </select>
-        </div>
+        
 
-        <button className="generate-button" onClick={generateRoutine}>
+        
+      </div>
+
+      <button className="generate-button" onClick={generateRoutine}>
           Generate Routine
         </button>
-      </div>
 
       
 
@@ -339,32 +344,45 @@ function App() {
           </tbody>
         </table>
       )}
+<section className="contact-section">
 
-      <section class="contact-section">
-      <section id='contact-us'></section>
-      <h2 className="contact-title">Contact Us</h2>
-      <div className="contact-form">
-      <form>
-        <div class="form-group">
-          <label for="first-name">First Name</label>
-          <input type="text" id="first-name" placeholder="First Name" />
-        </div>
-        <div class="form-group">
-          <label for="last-name">Last Name</label>
-          <input type="text" id="last-name" placeholder="Last Name" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Email" />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Message"></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+  
+  <div className="contact-form">
+  <h2 className="contact-title">Contact Us</h2>
+    <form>
+      <div className="form-group">
+        <label htmlFor="first-name">First Name</label>
+        <input type="text" id="first-name" placeholder="First Name" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="last-name">Last Name</label>
+        <input type="text" id="last-name" placeholder="Last Name" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="email">Email</label>
+        <input type="email" id="email" placeholder="Email" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="message">Message</label>
+        <textarea id="message" placeholder="Message"></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+  <div className="map-container">
+    <iframe
+      title="Google Maps"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3528.248769124608!2d-75.68029215027487!3d45.421987644632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05b6ced05641%3A0x57a01c13e73f9079!2sComplexe%20STEM%20(STM)!5e0!3m2!1sfr!2sca!4v1689122699819!5m2!1sfr!2sca"
+      width="600"
+      height="450"
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+</section>
     </div>
 
     
